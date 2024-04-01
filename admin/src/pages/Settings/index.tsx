@@ -215,7 +215,7 @@ const Settings = () => {
             marginTop={3}
           >
             <Stack spacing={3}>
-              <Typography>General settings</Typography>
+              <Typography variant="delta">Download Images</Typography>
               <Grid gap={6}>
                 <GridItem col={12} s={12}>
                   <Button
@@ -262,41 +262,59 @@ const Settings = () => {
             paddingBottom={6}
             paddingLeft={7}
             paddingRight={7}
+            marginTop={3}
+          >
+            <Stack spacing={3}>
+              <Typography variant="delta">Authentication</Typography>
+              <Grid gap={6}>
+                <GridItem col={12} s={12}>
+                {(window.location.hostname == 'localhost' ||
+                  window.location.protocol == 'http:') &&
+                  isDevAlertShow ? (
+                    <Alert
+                      closeLabel="Close alert"
+                      title="Development mode"
+                      variant="danger"
+                      onClose={() => setDevAlertShow(false)}
+                    >
+                      Instagram API does not allow specifying localhost as host and http
+                      protocol. Use a public domain and https protocol to connect your Strapi
+                      admin to Instagram API! <br/>
+                      You can use{' '} <Link href="https://ngrok.com/">ngrok</Link> or similar to
+                      generate public domain for your development environment!
+                    </Alert>
+                  ) : (
+                    <Box>
+                      <Button
+                        onClick={handleAuthenticate}
+                        startIcon={<Key />}
+                        size="L"
+                        disabled={!canAuthenticate()}
+                        loading={isAuth}
+                        variant="primary"
+                      >
+                        Authenticate
+                      </Button>
+                    </Box>
+                  )}
+                </GridItem>
+              </Grid>
+            </Stack>
+          </Box>
+          <Box
+            background="neutral0"
+            hasRadius
+            shadow="filterShadow"
+            paddingTop={6}
+            paddingBottom={6}
+            paddingLeft={7}
+            paddingRight={7}
             marginTop={6}
           >
             <Stack spacing={3}>
-              <Typography>
+              <Typography variant="delta">
                 Instagram API settings for Basic Display API
               </Typography>
-              {(window.location.hostname == 'localhost' ||
-                window.location.protocol == 'http:') &&
-              isDevAlertShow ? (
-                <Alert
-                  closeLabel="Close alert"
-                  title="Development mode"
-                  variant="danger"
-                  onClose={() => setDevAlertShow(false)}
-                >
-                  Instagram API callback not working on localhost and http
-                  protocol. Use public domain and https to connect your Strapi
-                  admin to Instagram API! You can use{' '}
-                  <Link href="https://ngrok.com/">ngrok</Link> or similar to
-                  generate public domain for your development environment!
-                </Alert>
-              ) : (
-                <Box>
-                  <Button
-                    onClick={handleAuthenticate}
-                    startIcon={<Key />}
-                    size="L"
-                    disabled={!canAuthenticate()}
-                    loading={isAuth}
-                    variant="primary"
-                  >
-                    Authenticate
-                  </Button>
-                </Box>
-              )}
               <Grid gap={6}>
                 <GridItem col={12} s={12}>
                   <TextInput
@@ -307,8 +325,8 @@ const Settings = () => {
                     error={
                       instagram_app_id == null
                         ? undefined
-                        : instagram_app_id.length > 15
-                        ? 'Content is too long'
+                        : instagram_app_id.length > 16
+                        ? 'Content is too long, the ID should consist of 16 characters or less'
                         : undefined
                     }
                     onChange={(e) => setInstagramAppId(e.target.value)}
