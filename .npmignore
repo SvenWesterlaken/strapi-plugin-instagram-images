@@ -1,0 +1,9 @@
+node_modules/
+test/
+docker-compose.yml
+Dockerfile
+.dockerignore
+.nyc_output
+.travis.yml
+.github/
+.env
