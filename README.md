@@ -6,10 +6,10 @@ Allows you to download images from Instagram and display them on your website po
 
 ## Features
 - Download last 20 images from Instagram whenever the API endpoint is called with a 10 minute interval
-- Can download images from albums (carousels)
+- Can download images from albums/carousels. (Will be saved as separate images with same `mediaId`)
 - Uses Instagram Basic Display API
-- Uses Strapi draft and publish system to provide a way to temporarily hide images
-- Refetches images when the URL expires
+- Uses Strapi draft and publish system to provide a way to temporarily hide images (published by default)
+- Due to refetching images it prevents the image url's from becoming invalid
 - Save permalinks to posts in the database
 - Allows videos to be downloaded as well in order to obtain a thumbnail
 
@@ -75,4 +75,4 @@ If you think you found a problem or bug feel free to [open an Issue at Github](h
 
 ## Credits
 
-The original plugin was created by [Kepes](https://github.com/kepes). After finding some critical bugs I proposed a PR to fix them. Unfortunately, The PR has yet to be merged and the plugin hasn't had an updated for almost a year by now. Therefore, I decided to copy my fork with the fixes and publish it as a new package in order to provide further maintenance and maybe the addition of new features. The original plugin can be found [here](https://github.com/webvibe-io/strapi-plugin-instagram).
+The original plugin was created by [Kepes](https://github.com/kepes). After finding some critical bugs I proposed a PR to fix them. Unfortunately, The PR has yet to be merged and the plugin hasn't had an update for almost a year by now. Therefore, I decided to copy my fork with the fixes, adjusted it for typescript and publish it as a new package in order to provide further maintenance and maybe the addition of new features. The original plugin can be found [here](https://github.com/webvibe-io/strapi-plugin-instagram).
