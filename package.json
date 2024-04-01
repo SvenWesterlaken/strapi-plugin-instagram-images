@@ -33,11 +33,15 @@
     "styled-components": "^5.2.1"
   },
   "author": {
-    "name": "A Strapi developer"
+    "name": "Sven Westerlaken",
+    "email": "sven@monodott.com",
+    "url": "https://monodott.com"
   },
   "maintainers": [
     {
-      "name": "A Strapi developer"
+      "name": "Sven Westerlaken",
+      "email": "sven@monodott.com",
+      "url": "https://monodott.com"
     }
   ],
   "engines": {
@@ -48,5 +52,22 @@
     "develop": "tsc -p tsconfig.server.json -w",
     "build": "tsc -p tsconfig.server.json"
   },
-  "license": "MIT"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SvenWesterlaken/strapi-plugin-instagram-images"
+  },
+  "bugs": {
+    "url": "https://github.com/SvenWesterlaken/strapi-plugin-instagram-images/issues",
+    "email": "sven@monodott.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "strapi",
+    "plugin",
+    "instagram",
+    "instagram-feed",
+    "images",
+    "meta",
+    "facebook"
+  ]
 }
