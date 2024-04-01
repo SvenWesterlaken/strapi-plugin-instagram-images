@@ -1,9 +1,9 @@
-"use strict";
+// @ts-nocheck
 
-const instagramSettings = require("../utils/settings");
-const { getPluginSettings, setPluginSettings } = instagramSettings;
-const fetchInstagram = require("../utils/fetchInstagram");
-const dateUtils = require("../utils/dateUtils");
+import settings from "../utils/settings";
+const { getPluginSettings, setPluginSettings } = settings;
+import fetchInstagram from "../utils/fetchInstagram";
+import dateUtils from "../utils/dateUtils";
 
 export default ({ strapi }) => ({
   async getShortLivedToken(redirect_uri, code, state) {

@@ -12,7 +12,7 @@ const instagramRequests = {
     return data;
   },
   setSettings: async (data: any) => {
-    return await axiosInstance.post(`/instagram/settings`,
+    return await axiosInstance.post(`/instagram-images/settings`,
       data
     );
   },
