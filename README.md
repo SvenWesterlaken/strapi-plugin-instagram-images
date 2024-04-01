@@ -18,7 +18,7 @@ Allows you to download images from Instagram and display them on your website po
 The plugin can be installed through npm:
   
 ```bash
-npm install @sven902/strapi-plugin-instagram-images
+npm install -S @sven902/strapi-plugin-instagram-images
 ```
 
 Secondly don't forget to enable the plugin in your Strapi project (`config/plugins.ts`):
