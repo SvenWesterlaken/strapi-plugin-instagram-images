@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/SvenWesterlaken/strapi-plugin-instagram-images/compare/v1.0.1...v1.0.2) (2024-04-01)
+
+
+### Bug Fixes
+
+* **build:** remove dist from gitignore ([650aa5c](https://github.com/SvenWesterlaken/strapi-plugin-instagram-images/commit/650aa5c61eab6fd40ecea088235a4986c8243ae7))
+
 ## [1.0.1](https://github.com/SvenWesterlaken/strapi-plugin-instagram-images/compare/v1.0.0...v1.0.1) (2024-04-01)
 
 
