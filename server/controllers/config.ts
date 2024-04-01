@@ -2,7 +2,7 @@ export default ({ strapi }) => ({
   async getSettings(ctx) {
     try {
       ctx.body = await strapi
-        .plugin('instagram')
+        .plugin('instagram-images')
         .service('config')
         .getSettings();
     } catch (err) {
@@ -13,11 +13,11 @@ export default ({ strapi }) => ({
     const { body } = ctx.request;
     try {
       await strapi
-        .plugin('instagram')
+        .plugin('instagram-images')
         .service('config')
         .setSettings(body);
       ctx.body = await strapi
-        .plugin('instagram')
+        .plugin('instagram-images')
         .service('config')
         .getSettings();
     } catch (err) {

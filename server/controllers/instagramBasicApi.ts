@@ -23,19 +23,19 @@ export default ({ strapi }: { strapi: Strapi }) => ({
       // TODO: check if reassigned ctx.body is necessary
       // Token refresh if necessary
       ctx.body = await strapi
-        .plugin('instagram')
+        .plugin('instagram-images')
         .service('token')
         .checkTokenExpiration();
 
       // Download new images if necessary
       ctx.body = await strapi
-        .plugin('instagram')
+        .plugin('instagram-images')
         .service('instagramBasicApi')
         .downloadImages(false);
 
       // Return images from database
       ctx.body = await strapi
-        .plugin('instagram')
+        .plugin('instagram-images')
         .service('images')
         .find(params);
     } catch (err) {
