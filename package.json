@@ -1,9 +1,10 @@
 {
-  "name": "strapi-plugin-instagram-images",
+  "name": "@svenwesterlaken/strapi-plugin-instagram-images",
   "version": "0.0.0",
   "description": "This is the description of the plugin.",
   "strapi": {
-    "name": "strapi-plugin-instagram-images",
+    "name": "instagram-images",
+    "displayName": "Instagram Images",
     "description": "Description of strapi-plugin-instagram-images plugin",
     "kind": "plugin"
   },
