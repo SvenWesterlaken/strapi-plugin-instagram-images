@@ -24,7 +24,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: Install dependencies
-        run: npm install
+        run: npm install --only=dev
       - name: Build
         run: npm run build
   release-dry:
@@ -43,7 +43,7 @@ jobs:
           node-version: 20.x
 
       - name: Install dependencies
-        run: npm install
+        run: npm install --only=dev
 
 
       - name: Build
@@ -72,7 +72,7 @@ jobs:
         node-version: 20.x
 
     - name: Install
-      run: npm install
+      run: npm install --only=dev
 
     - name: Release
       run: npm run release
