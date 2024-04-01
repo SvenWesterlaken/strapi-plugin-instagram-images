@@ -1,0 +1,49 @@
+
+{
+  "kind": "collectionType",
+  "collectionName": "instagram_images",
+  "info": {
+    "singularName": "instagram-image",
+    "pluralName": "instagram-images",
+    "displayName": "Instagram Image"
+  },
+  "options": {
+    "draftAndPublish": true,
+    "comment": ""
+  },
+  "attributes": {
+    "instagramId": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "originalUrl": {
+      "type": "string",
+      "maxLength": 9999,
+      "column": {
+        "type": "text"
+      }
+    },
+    "timestamp": {
+      "type": "datetime"
+    },
+    "caption": {
+      "type": "text",
+      "column": {
+        "type": "text"
+      }
+    },
+    "permalink": {
+      "type": "text"
+    },
+    "mediaId": {
+      "type": "string"
+    },
+    "mediaType": {
+      "type": "string"
+    },
+    "thumbnailUrl": {
+      "type": "text"
+    }
+  }
+}

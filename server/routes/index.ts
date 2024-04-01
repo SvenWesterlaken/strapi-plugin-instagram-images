@@ -1,10 +1,7 @@
-export default [
-  {
-    method: 'GET',
-    path: '/',
-    handler: 'myController.index',
-    config: {
-      policies: [],
-    },
-  },
-];
+import images from './images';
+import instagram from './instagram';
+
+export default {
+  images,
+  instagram
+}

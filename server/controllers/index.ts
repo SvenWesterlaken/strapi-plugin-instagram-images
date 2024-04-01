@@ -1,5 +1,11 @@
-import myController from './my-controller';
+import images from './images';
+import config from './config';
+import token from './token';
+import instagramBasicApi from './instagramBasicApi';
 
 export default {
-  myController,
+  images,
+  config,
+  token,
+  instagramBasicApi
 };
