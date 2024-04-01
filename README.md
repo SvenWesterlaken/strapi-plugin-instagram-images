@@ -8,6 +8,7 @@ Allows you to download images from Instagram and display them on your website po
 - Uses Strapi draft and publish system to provide a way to temporarily hide images
 - Refetches images when the URL expires
 - Save permalinks to posts in the database
+- Allows videos to be downloaded as well in order to obtain a thumbnail
 
 ## Installation
 
