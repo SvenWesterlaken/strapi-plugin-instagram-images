@@ -6,6 +6,7 @@ Allows you to download images from Instagram and display them on your website po
 - Can download images from albums (carousels)
 - Uses Instagram Basic Display API
 - Uses Strapi draft and publish system to provide a way to temporarily hide images
+- Refetches images when the URL expires
 
 ## Installation
 
