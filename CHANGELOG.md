@@ -1,3 +1,11 @@
+## [1.0.1](https://github.com/SvenWesterlaken/strapi-plugin-instagram-images/compare/v1.0.0...v1.0.1) (2024-04-01)
+
+
+### Bug Fixes
+
+* **ci:** expand permissions ([c52a3ad](https://github.com/SvenWesterlaken/strapi-plugin-instagram-images/commit/c52a3ad7d45392889aa328a93b3813ec0ab7acb3))
+* **npm:** set publish config to public ([46d1ff0](https://github.com/SvenWesterlaken/strapi-plugin-instagram-images/commit/46d1ff006516d5e9d51f4e4d77c0b9c57d69b1f4))
+
 # 1.0.0 (2024-04-01)
 
 
