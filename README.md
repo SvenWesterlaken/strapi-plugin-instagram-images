@@ -1,3 +1,6 @@
+[![release](https://github.com/SvenWesterlaken/strapi-plugin-instagram-images/actions/workflows/release.yml/badge.svg?branch=main)](https://github.com/SvenWesterlaken/strapi-plugin-instagram-images/actions/workflows/release.yml)
+
+
 # Strapi Instagram Images Plugin
 Allows you to download images from Instagram and display them on your website powered by a [Strapi](https://strapi.io/) backend.
 
