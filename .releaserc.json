@@ -1,0 +1,40 @@
+{
+  "branches": ["main", "master"],
+  "verifyConditions": [
+    "@semantic-release/changelog",
+    "@semantic-release/npm",
+    "@semantic-release/git",
+    "@semantic-release/github"
+  ],
+  "analyzeCommits": {
+    "preset": "angular",
+    "releaseRules": [
+      {
+        "type": "doc",
+        "scope": "README",
+        "release": "patch"
+      },
+      {
+        "type": "refactor",
+        "release": "patch"
+      },
+      {
+        "type": "major",
+        "release": "major"
+      },
+      {
+        "type": "build",
+        "release": "patch"
+      },
+      {
+        "type": "release",
+        "release": "major"
+      }
+    ]
+  },
+  "prepare": [
+    "@semantic-release/changelog",
+    "@semantic-release/npm",
+    "@semantic-release/git"
+  ]
+}
