@@ -1,0 +1,130 @@
+// @ts-nocheck
+// TODO: rewrite & fix typescript errors
+'use strict';
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const settings_1 = __importDefault(require("../utils/settings"));
+const { getPluginSettings, setPluginSettings } = settings_1.default;
+const fetchInstagram_1 = __importDefault(require("../utils/fetchInstagram"));
+const dateUtils_1 = __importDefault(require("../utils/dateUtils"));
+const album_fields = 'id,media_type,media_url,thumbnail_url,username,timestamp,permalink';
+const media_fields = `${album_fields},caption`;
+const dbImageName = 'plugin::instagram-images.instagram-image';
+exports.default = ({ strapi }) => ({
+    async downloadAlbum(parent, token) {
+        const settings = await getPluginSettings();
+        const album = await fetchInstagram_1.default.callInstagramGraph(`/${parent.id}/children`, {
+            access_token: token,
+            fields: album_fields,
+        });
+        const media = [];
+        album.data.forEach((element) => {
+            if (element.media_type === 'IMAGE' || (element.media_type === 'VIDEO' && settings.instagram_allow_videos)) {
+                media.push({
+                    mediaId: parent.id,
+                    id: element.id,
+                    url: element.media_url,
+                    timestamp: element.timestamp,
+                    caption: parent.caption,
+                    mediaType: element.media_type,
+                    permalink: element.permalink,
+                    thumbnailUrl: element.media_type === 'VIDEO' ? element.thumbnail_url : null
+                });
+            }
+        });
+        return media;
+    },
+    async downloadImages(force = false) {
+        const settings = await getPluginSettings();
+        const token = settings.shortLivedAccessToken || settings.longLivedAccessToken;
+        if (token === undefined) {
+            return {
+                error: 'Instagram download images error, there is no token!',
+                status: 400,
+            };
+        }
+        if (!force &&
+            dateUtils_1.default.dateDifferenceToNow(settings.lastDownloadTime, dateUtils_1.default.minute) < 10) {
+            return { download: false };
+        }
+        const instagramMedia = await fetchInstagram_1.default.callInstagramGraph('/me/media', {
+            access_token: token,
+            fields: media_fields,
+        });
+        if (instagramMedia.error !== undefined) {
+            if (instagramMedia.error.code == 190 && instagramMedia.error.type == "OAuthException") {
+                settings.shortLivedAccessToken = undefined;
+                settings.longLivedAccessToken = undefined;
+                settings.lastApiResponse = JSON.stringify(instagramMedia);
+                await setPluginSettings(settings);
+            }
+            ;
+            return {
+                download: false,
+                error: instagramMedia.error
+            };
+        }
+        let images = [];
+        for (let element of instagramMedia.data) {
+            if (element.media_type === 'IMAGE' || (element.media_type === 'VIDEO' && settings.instagram_allow_videos)) {
+                images.push({
+                    mediaId: element.id,
+                    id: element.id,
+                    url: element.media_url,
+                    timestamp: element.timestamp,
+                    caption: element.caption,
+                    mediaType: element.media_type,
+                    permalink: element.permalink,
+                    thumbnailUrl: element.media_type === 'VIDEO' ? element.thumbnail_url : null
+                });
+            }
+            else if (element.media_type === 'CAROUSEL_ALBUM') {
+                const album = await this.downloadAlbum(element, token);
+                images = images.concat(album);
+            }
+        }
+        await this.insertImagesToDatabase(images);
+        settings.lastDownloadTime = new Date();
+        await setPluginSettings(settings);
+        return images;
+    },
+    async isImageExists(image) {
+        const entry = await strapi.db.query(dbImageName).findOne({
+            where: { instagramId: image.id },
+        });
+        return entry != null;
+    },
+    async insertImagesToDatabase(images) {
+        for (let image of images) {
+            const imageExists = await this.isImageExists(image);
+            if (imageExists) {
+                // Update image url if already exists in order to prevent
+                // url to be invalid after a week
+                const entry = await strapi.db.query(dbImageName).update({
+                    where: { instagramId: image.id },
+                    data: {
+                        originalUrl: image.url,
+                        thumbnailUrl: image.thumbnailUrl
+                    }
+                });
+            }
+            else {
+                const entry = await strapi.db.query(dbImageName).create({
+                    data: {
+                        instagramId: image.id,
+                        mediaId: image.mediaId,
+                        originalUrl: image.url,
+                        timestamp: image.timestamp,
+                        caption: image.caption,
+                        publishedAt: new Date(),
+                        permalink: image.permalink,
+                        thumbnailUrl: image.thumbnailUrl,
+                        mediaType: image.mediaType
+                    },
+                });
+            }
+        }
+    },
+});
