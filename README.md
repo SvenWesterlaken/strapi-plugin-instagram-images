@@ -1,5 +1,5 @@
 [![release](https://github.com/SvenWesterlaken/strapi-plugin-instagram-images/actions/workflows/release.yml/badge.svg?branch=main)](https://github.com/SvenWesterlaken/strapi-plugin-instagram-images/actions/workflows/release.yml)
-![NPM Version](https://img.shields.io/npm/v/%40sven902%2Fstrapi-plugin-instagram-images)
+[![NPM Version](https://img.shields.io/npm/v/%40sven902%2Fstrapi-plugin-instagram-images)](https://www.npmjs.com/package/@sven902/strapi-plugin-instagram-images)
 
 
 # Strapi Instagram Images Plugin
