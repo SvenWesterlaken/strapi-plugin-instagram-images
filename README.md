@@ -7,6 +7,20 @@ Allows you to download images from Instagram and display them on your website po
 
 > If you were using the original [strapi-plugin-instagram by Kepes](https://github.com/webvibe-io/strapi-plugin-instagram), follow the [migration guide](#migration) to migrate to this plugin.
 
+## Table of Contents
+- [Features](#features)
+- [Installation](#installation)
+- [Configuration](#configuration)
+    - [Local developement](#local-developement)
+    - [How to setup Instagram Basic Display API to download images](#how-to-setup-instagram-basic-display-api-to-download-images)
+- [API](#api)
+- [Troubleshooting](#troubleshooting)
+    - [Most common errors](#most-common-errors)
+    - [Emojis in content causing errors](#emojis-in-content-causing-errors)
+    - [Issues](#issues)
+- [Migration](#migration)
+- [Credits](#credits)
+
 ## Features
 - Download last 20 images from Instagram whenever the API endpoint is called with a 10 minute interval
 - Can download images from albums/carousels. (Will be saved as separate images with same `mediaId`)
