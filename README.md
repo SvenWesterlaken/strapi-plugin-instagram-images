@@ -5,6 +5,8 @@
 # Strapi Instagram Images Plugin
 Allows you to download images from Instagram and display them on your website powered by a [Strapi](https://strapi.io/) backend.
 
+> If you were using the original [strapi-plugin-instagram by Kepes](https://github.com/webvibe-io/strapi-plugin-instagram), follow the [migration guide](#migration) to migrate to this plugin.
+
 ## Features
 - Download last 20 images from Instagram whenever the API endpoint is called with a 10 minute interval
 - Can download images from albums/carousels. (Will be saved as separate images with same `mediaId`)
@@ -73,6 +75,14 @@ charset: env('DATABASE_CHARSET', 'utf8mb4'),
 
 ### Issues
 If you think you found a problem or bug feel free to [open an Issue at Github](https://github.com/SvenWesterlaken/strapi-plugin-instagram-images/issues).
+
+## Migration
+If you are using the original plugin and want to migrate to this plugin you can follow these steps:
+
+1. Note that the data is saved separately in the database as this is a 'different' plugin. Therefore, you need to redo [the steps in the configuration section](#how-to-setup-instagram-basic-display-api-to-download-images) in order to download the images again.
+2. Change your API url's for fetching from 
+3. You can delete the old plugin from your project by running `npm uninstall strapi-plugin-instagram`.
+4. You can also remove the old images as you will probably have a duplicate of collection entities for the images.
 
 ## Credits
 
