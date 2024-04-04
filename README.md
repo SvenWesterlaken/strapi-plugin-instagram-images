@@ -1,11 +1,21 @@
-[![release](https://github.com/SvenWesterlaken/strapi-plugin-instagram-images/actions/workflows/release.yml/badge.svg?branch=main)](https://github.com/SvenWesterlaken/strapi-plugin-instagram-images/actions/workflows/release.yml)
-[![NPM Version](https://img.shields.io/npm/v/%40sven902%2Fstrapi-plugin-instagram-images)](https://www.npmjs.com/package/@sven902/strapi-plugin-instagram-images)
+<p align="center">
+    <img src="./.github/images/logo.png" width="250" height="250"/>
+</p>
 
+<h1 align="center">Strapi Instagram Images Plugin</h1>
 
-# Strapi Instagram Images Plugin
-Allows you to download images from Instagram and display them on your website powered by a [Strapi](https://strapi.io/) backend.
+<p align="center">
+    <a href="https://github.com/SvenWesterlaken/strapi-plugin-instagram-images/actions/workflows/release.yml">
+        <img alt="release" src="https://github.com/SvenWesterlaken/strapi-plugin-instagram-images/actions/workflows/release.yml/badge.svg?branch=main">
+    </a>
+    <a href="https://www.npmjs.com/package/@sven902/strapi-plugin-instagram-images">
+        <img alt="NPM Version" src="https://img.shields.io/npm/v/@sven902/strapi-plugin-instagram-images">
+    </a>
+</p>
 
-> If you were using the original [strapi-plugin-instagram by Kepes](https://github.com/webvibe-io/strapi-plugin-instagram), follow the [migration guide](#migration) to migrate to this plugin.
+<p align="center">Allows you to download images from Instagram and display them on your website powered by a <a href="https://strapi.io/">Strapi</a> backend.</p>
+
+<blockquote align="center">If you were using the original <a href="https://github.com/webvibe-io/strapi-plugin-instagram">strapi-plugin-instagram by Kepes</a>, follow the <a href="#migration">migration guide</a> to migrate to this plugin.</blockquote>
 
 ## Table of Contents
 - [Features](#features)
