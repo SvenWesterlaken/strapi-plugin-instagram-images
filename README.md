@@ -107,7 +107,7 @@ If you think you found a problem or bug feel free to [open an Issue at Github](h
 If you are using the original plugin and want to migrate to this plugin you can follow these steps:
 
 1. Note that the data is saved separately in the database as this is a 'different' plugin. Therefore, you need to redo [the steps in the configuration section](#how-to-setup-instagram-basic-display-api-to-download-images) in order to download the images again.
-2. Change your API url's for fetching (or any other action) from `/api/instagram-images/images` to `/api/instagram-images-images/images`.
+2. Change your API url's for fetching (or any other action) from `/api/instagram/images` to `/api/instagram-images/images`.
 3. You can delete the old plugin from your project by running `npm uninstall strapi-plugin-instagram`.
 4. You can also remove the old images as you will probably have a duplicate of collection entities for the images.
 
