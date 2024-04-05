@@ -72,7 +72,8 @@ Secondly don't forget to enable the plugin in your Strapi project (`config/plugi
 7. After logging in you should be redirected back to the Strapi admin panel and see a success message.
 8. You should be able to use the 'Download images' button to download the last 20 images from the Instagram account that you have added as a test user.
 9. The images should now be available in the Instagram images collection type.
-10. Extra: make sure you enabled the right permissions in order to call the API endpoint to fetch the images.
+10. You can now use the API endpoint to fetch the images. See the [API section](#api) for more information.
+11. Extra: make sure you enabled the right permissions in order to call the API endpoint to fetch the images.
 
 ## API
 
@@ -82,7 +83,10 @@ After setup you can call the following API endpoint to fetch the images:
 /api/instagram-images/images
 ```
 
-This should work as a normal Strapi content type endpoint.
+This should work as a normal Strapi content type endpoint. 
+
+However, there's is one difference: the GET request is overwritten to refresh the access token and fetch the images from Instagram. Because of this, there is no need to reauthenticate as long as the access token is valid (which should be automatically refreshed). This refreshment of images and tokens is throttled to a 10 minute interval. If in any case the access token is invalid or you want to manually fetch the images, you can use the 'download images' or the authenticate button in the settings page to manually trigger those actions.
+
 
 ## Troubleshooting
 If you have any error in the authentication process or the plugin don't have short or long lived token you should check Last Instagram Api response and developer tool's console for error messages.
